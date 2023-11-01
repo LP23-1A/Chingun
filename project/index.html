@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>todo</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -14,9 +14,9 @@
                 <div class="board">
                     <div class="boardHeader">
                         To Do
-                        <span class="count">0</span>
+                        <span class="count" id="countToDo">0</span>
                     </div>
-                    <div class="cards">
+                    <div class="cards" id="toDo">
                         <div class="card" draggable="true" id="todo">
                             <div class="done">
                                 <i class="fa fa-check circle"></i>
@@ -46,17 +46,32 @@
                             </div>
                         </div>
                     </div>
-                    <button class="add-btn">
+                    <button class="add-btn" onclick="openForm()">
                         <i class="fa fa-sharp fa-plus"></i>
-                        Add Card
+                        <span>Add Card</span>
                     </button>
                 </div>
                 <div class="board">
                     <div class="boardHeader">
                         In Progress
-                        <span class="count">0</span>
+                        <span class="count" id="countProgress">0</span>
                     </div>
-                    <div class="cards"></div>
+                    <div class="cards" id="inProgress">
+                        <div class="card" draggable="true" id="todo">
+                            <div class="done">
+                                <i class="fa fa-check circle"></i>
+                            </div>
+                            <div class="details">
+                                <h4>To Do</h4>
+                                <p>This is a to do card</p>
+                                <span class="priority">high</span>
+                            </div>
+                            <div class="actions">
+                                <button><i class="fa fa-close circle"></i></button>
+                                <button><i class="fa fa-edit circle"></i></button>
+                            </div>
+                        </div>
+                    </div>
                     <button class="add-btn">
                         <i class="fa fa-plus"></i>
                         Add Card
@@ -65,9 +80,9 @@
                 <div class="board">
                     <div class="boardHeader">
                         Stuck
-                        <span class="count">0</span>
+                        <span class="count" id="countStuck">0</span>
                     </div>
-                    <div class="cards"></div>
+                    <div class="cards" id="stuck"></div>
                     <button class="add-btn">
                         <i class="fa fa-plus"></i>
                         Add Card
@@ -76,9 +91,9 @@
                 <div class="board">
                     <div class="boardHeader">
                         Done
-                        <span class="count">0</span>
+                        <span class="count" id="countDone">0</span>
                     </div>
-                    <div class="cards"></div>
+                    <div class="cards" id="done"></div>
                     <button class="add-btn">
                         <i class="fa fa-plus"></i>
                         Add Card
@@ -86,6 +101,40 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+            <h1>Add Task</h1>
+            <div>
+                <label for="email">Title</label>
+                <input type="text" name="email" required>
+            </div>
+            <div>
+                <label for="psw">Description</label>
+                <textarea name="" id="" cols="50" rows="4"></textarea>
+            </div>
+            <div>
+                <label for="psw">Status</label>
+                <select name="" id="">
+                    <option hidden disabled selected value></option>
+                    <option value="todo">To Do</option>
+                    <option value="inprogress">In Progress</option>
+                    <option value="stuck">Stuck</option>
+                    <option value="done">Done</option>
+                </select>
+            </div>
+            <div>
+                <label for="priority">Priority</label>
+                <select name="priority" id="priority">
+                    <option hidden disabled selected value></option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <button type="submit" class="btn" onclick="addTask()">Add Task</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
     </div>
 
     <script src="index.js"></script>

@@ -58,16 +58,99 @@ i {
 
 
 .add-btn {
-    display: flex;
     gap: 16px;
-    align-items: center;
+    text-align: left;
     border-radius: 4px;
     padding: 8px;
+    padding-left: auto;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
     cursor: pointer;
 }
 
 .add-btn:hover {
     background-color:rgba(0, 0, 0, 0.1);
+}
+
+.form-popup {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    width: 400px;
+}
+  
+  /* Add styles to the form container */
+.form-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+  
+  /* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+  
+  /* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    border: 1px solid blue;
+}
+
+.form-container textarea, .form-container input[type=password] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    resize: none;
+}
+
+.form-container textarea:focus, .form-container input[type=password]:focus {
+    border: 1px solid blue;
+}
+
+.form-container select, .form-container input[type=password] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.form-container select:focus, .form-container input[type=password]:focus {
+    border: 1px solid blue;
+}
+  
+  /* Set a style for the submit/login button */
+.form-container .btn {
+    background-color: black;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+}
+  /* Add a red background color to the cancel button */
+.form-container .cancel {
+    background-color: red;
+}
+  
+  /* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+    cursor: pointer;
 }
 
 .cards {
