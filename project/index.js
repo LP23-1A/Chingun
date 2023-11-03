@@ -19,17 +19,29 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 
-const onSubmit = (event) => {
-  event.preventDefault();
-
-  const title = document.querySelector("#title").value;
-  const description = document.querySelector("#desc").value;
-  const status = document.querySelector("#status").value;
-  const priority = document.querySelector("#priority").value;
-
+function checker() {
+  console.log("bob")
+  let title = document.getElementById("title").value;
+  let desc = document.getElementById("desc").value;
+  let status = document.getElementById("status").value;
+  let priority= document.getElementById("priority").value;
   console.log(title)
-  console.log(description)
+  console.log(desc)
   console.log(status)
   console.log(priority)
-};
+  closeForm()
+}
+
+
+
+document.querySelector(".backdrop").addEventListener("click", () => {
+  document.querySelector(".backdrop").classList.remove("active");
+});
+
+document.querySelectorAll(".add-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelector(".backdrop").classList.add("active");
+  });
+});
+
 
