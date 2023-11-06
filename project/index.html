@@ -46,7 +46,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="add-btn" onclick="openForm()">
+                    <button class="add-btn" onclick="showPopup()">
                         <i class="fa fa-sharp fa-plus"></i>
                         <span>Add Card</span>
                     </button>
@@ -72,9 +72,9 @@
                             </div>
                         </div>
                     </div>
-                    <button class="add-btn">
-                        <i class="fa fa-plus"></i>
-                        Add Card
+                    <button class="add-btn" onclick="showPopup()">
+                        <i class="fa fa-sharp fa-plus"></i>
+                        <span>Add Card</span>
                     </button>
                 </div>
                 <div class="board">
@@ -83,9 +83,9 @@
                         <span class="count" id="countStuck">0</span>
                     </div>
                     <div class="cards" id="stuck"></div>
-                    <button class="add-btn">
-                        <i class="fa fa-plus"></i>
-                        Add Card
+                    <button class="add-btn" onclick="showPopup()">
+                        <i class="fa fa-sharp fa-plus"></i>
+                        <span>Add Card</span>
                     </button>
                 </div>
                 <div class="board">
@@ -94,17 +94,17 @@
                         <span class="count" id="countDone">0</span>
                     </div>
                     <div class="cards" id="done"></div>
-                    <button class="add-btn">
-                        <i class="fa fa-plus"></i>
-                        Add Card
+                    <button class="add-btn" onclick="showPopup()">
+                        <i class="fa fa-sharp fa-plus"></i>
+                        <span>Add Card</span>
                     </button>
                 </div>
             </div>
         </div>
     </div>
-    <div>
-        <div class="backdrop" onclick="closeForm()"></div>
-        <div class="form-popup" id="myForm">
+    <div class="popup">
+        <div class="blocker" onclick="hidePopup()"></div>
+        <div class="contents" id="myForm">
             <form class="form-container">
                 <h1>Add Task</h1>
                 <div>
@@ -119,8 +119,8 @@
                     <label for="status">Status</label>
                     <select name="status" id="status">
                         <option hidden disabled selected value></option>
-                        <option value="todo">To Do</option>
-                        <option value="inprogress">In Progress</option>
+                        <option value="toDo">To Do</option>
+                        <option value="inProgress">In Progress</option>
                         <option value="stuck">Stuck</option>
                         <option value="done">Done</option>
                     </select>
@@ -134,10 +134,12 @@
                         <option value="high">High</option>
                     </select>
                 </div>
-                <button type="button" class="btn" onclick="checker()">Add Task</button>
+                <button type="reset" class="btn" onclick="checker()">Add Task</button>
             </form>
         </div>
+      </div>
+    <div class="pop-up">    
     </div>
-    <script src="index.js"></script>
+    <script src="index.js" defer></script>
 </body>
 </html>
