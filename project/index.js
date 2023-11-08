@@ -48,16 +48,17 @@ function addTask(id, titleInput, descriptionInput, statusInput, priorityInput) {
   var card = document.createElement('div');
   // card.setAttribute('data-id' , id);
   card.setAttribute("id", id)
-  card.style.marginTop = "8px";
-  card.style.borderRadius = "8px"
-  card.style.padding = "5px"
-  card.style.display = "flex";
-  card.style.gap = "20px"
+  card.setAttribute("draggable", true)
+  card.setAttribute("ondragstart", "drag(event)")
   card.className = "card";
+  card.classList.add("noDrop");
   document.getElementById(statusInput).appendChild(card);
   var done = document.createElement('button');
   done.innerHTML = '<i class="fa fa-check circle"></i>';
   document.getElementById(id).appendChild(done);
+  done.addEventListener('click', function handleClick() {
+    document.getElementById("done").appendChild(card);
+  });
   var details = document.createElement('div');
   details.setAttribute("id", "details");
   details.className = "details"
@@ -78,12 +79,37 @@ function addTask(id, titleInput, descriptionInput, statusInput, priorityInput) {
   var close = document.createElement("button");
   close.innerHTML = '<i class="fa fa-close circle"></i>';
   actions.appendChild(close)
+  close.addEventListener('click', function handleClick() {
+    const element = document.getElementById(id);
+    element.remove();
+  });
   var edit = document.createElement("button");
   edit.innerHTML = '<i class="fa fa-edit circle"></i>';
   actions.appendChild(edit)
+  edit.addEventListener('click', function handleClick() {
+    console.log("Yup")
+    showPopup()
+  });
   document.getElementById(id).appendChild(actions);
 }
 
-function finish () {
-  
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+  // if ($(ev.target).hasClass("noDrop")) {
+  //   console.log("no transfer");
+  //   ev.preventDefault();
+  // } else {
+  //   ev.preventDefault();
+  //   ev.target.appendChild(document.getElementById(data));
+  // }
 }
