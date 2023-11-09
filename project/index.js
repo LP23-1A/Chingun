@@ -11,7 +11,6 @@ function count(){
   const countInDone = document.querySelectorAll('#done .card').length; 
     document.getElementById("countDone").innerHTML = countInDone;
 }
-count()
 
 const uid = () => {
   return Date.now().toString(36) + Math.random().toString(36);
@@ -20,6 +19,8 @@ const uid = () => {
 addTask(uid(), "To Do", "This is a to do card", "toDo", "high")
 
 addTask(uid(), "To Do", "This is a to do card", "inProgress", "high")
+
+count()
 
 function checker() {
   let title = document.getElementById("title").value;
@@ -50,18 +51,23 @@ function addTask(id, titleInput, descriptionInput, statusInput, priorityInput) {
   card.setAttribute("id", id)
   card.setAttribute("draggable", true)
   card.setAttribute("ondragstart", "drag(event)")
+  card.setAttribute("ondrop", "return false;")
   card.className = "card";
   card.classList.add("noDrop");
   document.getElementById(statusInput).appendChild(card);
   var done = document.createElement('button');
   done.innerHTML = '<i class="fa fa-check circle"></i>';
   document.getElementById(id).appendChild(done);
+  done.setAttribute("ondrop", "return false;")
+  done.classList.add("noDrop");
   done.addEventListener('click', function handleClick() {
     document.getElementById("done").appendChild(card);
   });
   var details = document.createElement('div');
   details.setAttribute("id", "details");
+  details.setAttribute("ondrop", "return false;")
   details.className = "details"
+  details.classList.add("noDrop");
   var title = document.createElement('h4');
   title.innerHTML = titleInput;
   details.appendChild(title)
@@ -71,11 +77,14 @@ function addTask(id, titleInput, descriptionInput, statusInput, priorityInput) {
   var priority = document.createElement('span');
   priority.innerHTML = priorityInput;
   priority.className = "priority";
+  priority.classList.add("noDrop");
   details.appendChild(priority)
   document.getElementById(id).appendChild(details);
   var actions = document.createElement("div");
   actions.className = "actions";
+  actions.classList.add("noDrop");
   actions.setAttribute("id", "actions");
+  actions.setAttribute("ondrop", "return false;")
   var close = document.createElement("button");
   close.innerHTML = '<i class="fa fa-close circle"></i>';
   actions.appendChild(close)
@@ -101,15 +110,17 @@ function drag(ev) {
   ev.dataTransfer.setData("text", ev.target.id);
 }
 
+
 function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
-  // if ($(ev.target).hasClass("noDrop")) {
-  //   console.log("no transfer");
-  //   ev.preventDefault();
-  // } else {
-  //   ev.preventDefault();
-  //   ev.target.appendChild(document.getElementById(data));
-  // }
+  count()
+  if (ev.target.classList.contains("noDrop")) {
+    ev.preventDefault();
+    console.log("no transfer");
+  } else {
+    ev.preventDefault();
+    ev.target.appendChild(document.getElementById(data));
+  }
 }
