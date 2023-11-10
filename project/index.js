@@ -45,6 +45,12 @@ function hidePopup() {
   popup.classList.remove('open');
 }
 
+function editCard(title) {
+  console.log("check")
+  showPopup()
+  document.getElementById("title").value = title;
+}
+
 function addTask(id, titleInput, descriptionInput, statusInput, priorityInput) {
   var card = document.createElement('div');
   // card.setAttribute('data-id' , id);
@@ -96,8 +102,7 @@ function addTask(id, titleInput, descriptionInput, statusInput, priorityInput) {
   edit.innerHTML = '<i class="fa fa-edit circle"></i>';
   actions.appendChild(edit)
   edit.addEventListener('click', function handleClick() {
-    console.log("Yup")
-    showPopup()
+    editCard()
   });
   document.getElementById(id).appendChild(actions);
 }
@@ -110,17 +115,9 @@ function drag(ev) {
   ev.dataTransfer.setData("text", ev.target.id);
 }
 
-
-function drop(ev) {
+function drop(ev, el) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
+  el.appendChild(document.getElementById(data));
   count()
-  if (ev.target.classList.contains("noDrop")) {
-    ev.preventDefault();
-    console.log("no transfer");
-  } else {
-    ev.preventDefault();
-    ev.target.appendChild(document.getElementById(data));
-  }
 }

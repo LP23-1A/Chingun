@@ -175,6 +175,7 @@ transform: translate(-50%, -50%);
 
 .cards {
     gap: 8px;
+
 }
 
 .card {
@@ -209,6 +210,10 @@ transform: translate(-50%, -50%);
     display: inline-block;
 }
 
+.done{
+    
+}
+
 .details{
     display: flex;
     flex-direction: column;
@@ -229,4 +234,9 @@ transform: translate(-50%, -50%);
     border-radius: 8px;
     width: fit-content;
     font-size: 12px;
+}
+
+.hitbox {
+    height: 5px;
+    
 }
