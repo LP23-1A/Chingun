@@ -20,22 +20,9 @@ addTask(uid(), "To Do", "This is a to do card", "toDo", "high")
 
 addTask(uid(), "To Do", "This is a to do card", "inProgress", "high")
 
-count()
+addTask(uid(), "To Do", "This is a to do card", "inProgress", "high")
 
-function checker() {
-  let title = document.getElementById("title").value;
-  let description = document.getElementById("desc").value;
-  let status = document.getElementById("status").value;
-  let priority= document.getElementById("priority").value;
-  // console.log(title)
-  // console.log(description)
-  // console.log(status)
-  // console.log(priority)
-  let id = uid()
-  addTask(id, title, description, status, priority)
-  count()
-  hidePopup()
-}
+count()
 
 const popup = document.querySelector('.popup');
 function showPopup() {
@@ -45,27 +32,36 @@ function hidePopup() {
   popup.classList.remove('open');
 }
 
-function editCard(title) {
+const edit = document.querySelector('.popupEdit');
+function showEdit() {
+  edit.classList.add('open');
+}
+function hideEdit() {
+  edit.classList.remove('open');
+}
+
+function editCard(title, description, status, priority) {
   console.log("check")
-  showPopup()
-  document.getElementById("title").value = title;
+  document.getElementById("titleE").value = title;
+  document.getElementById("descE").value = description;
+  document.getElementById("statusE").value = status;
+  document.getElementById("priorityE").value = priority;
+  showEdit()
 }
 
 function addTask(id, titleInput, descriptionInput, statusInput, priorityInput) {
   var card = document.createElement('div');
-  // card.setAttribute('data-id' , id);
+  card.setAttribute('data-id', id);
   card.setAttribute("id", id)
   card.setAttribute("draggable", true)
-  card.setAttribute("ondragstart", "drag(event)")
-  card.setAttribute("ondrop", "return false;")
+  // card.setAttribute("ondragstart", "drag(event)")
+  // card.setAttribute("ondrop", "return false;")
   card.className = "card";
-  card.classList.add("noDrop");
   document.getElementById(statusInput).appendChild(card);
   var done = document.createElement('button');
   done.innerHTML = '<i class="fa fa-check circle"></i>';
   document.getElementById(id).appendChild(done);
   done.setAttribute("ondrop", "return false;")
-  done.classList.add("noDrop");
   done.addEventListener('click', function handleClick() {
     document.getElementById("done").appendChild(card);
   });
@@ -73,7 +69,6 @@ function addTask(id, titleInput, descriptionInput, statusInput, priorityInput) {
   details.setAttribute("id", "details");
   details.setAttribute("ondrop", "return false;")
   details.className = "details"
-  details.classList.add("noDrop");
   var title = document.createElement('h4');
   title.innerHTML = titleInput;
   details.appendChild(title)
@@ -83,12 +78,11 @@ function addTask(id, titleInput, descriptionInput, statusInput, priorityInput) {
   var priority = document.createElement('span');
   priority.innerHTML = priorityInput;
   priority.className = "priority";
-  priority.classList.add("noDrop");
+  priority.classList.add(priorityInput)
   details.appendChild(priority)
   document.getElementById(id).appendChild(details);
   var actions = document.createElement("div");
   actions.className = "actions";
-  actions.classList.add("noDrop");
   actions.setAttribute("id", "actions");
   actions.setAttribute("ondrop", "return false;")
   var close = document.createElement("button");
@@ -97,27 +91,101 @@ function addTask(id, titleInput, descriptionInput, statusInput, priorityInput) {
   close.addEventListener('click', function handleClick() {
     const element = document.getElementById(id);
     element.remove();
+    count()
   });
   var edit = document.createElement("button");
   edit.innerHTML = '<i class="fa fa-edit circle"></i>';
   actions.appendChild(edit)
   edit.addEventListener('click', function handleClick() {
-    editCard()
+    let identification = id;
+    editCard(titleInput, descriptionInput, statusInput, priorityInput)
+    document.getElementById("editBtn").onclick = function(e){
+      let newStatus = document.getElementById("statusE").value
+      let newTitle = document.getElementById("titleE").value;
+      let newDescription = document.getElementById("descE").value;
+      let newPriority= document.getElementById("priorityE").value;
+      document.getElementById(newStatus).appendChild(card);
+      title.innerHTML = newTitle;
+      description.innerHTML = newDescription;
+      priority.innerHTML = newPriority;
+      titleInput = newTitle
+      descriptionInput = newDescription
+      statusInput = newStatus
+      priorityInput = newPriority
+      hideEdit()
+      count()
+    }
   });
   document.getElementById(id).appendChild(actions);
 }
 
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev, el) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  el.appendChild(document.getElementById(data));
+function checker() {
+  let title = document.getElementById("title").value;
+  let description = document.getElementById("desc").value;
+  let status = document.getElementById("status").value;
+  let priority= document.getElementById("priority").value;
+  let id = uid()
+  addTask(id, title, description, status, priority)
   count()
+  hidePopup()
 }
+
+// function editConfirm() {
+//   let newStatus = document.getElementById("statusE").value
+//   let newTitle = document.getElementById("titleE").value;
+//   let newDescription = document.getElementById("descE").value;
+//   let newPriority= document.getElementById("priorityE").value;
+//   document.getElementById(newStatus).appendChild(card);
+//   title.innerHTML = newTitle;
+//   description.innerHTML = newDescription;
+//   priority.innerHTML = newPriority;
+// }
+
+// function allowDrop(ev) {
+//   ev.preventDefault();
+// }
+
+// function drag(ev) {
+//   ev.dataTransfer.setData("text", ev.target.id);
+// }
+
+// function drop(ev, el) {
+//   ev.preventDefault();
+//   var data = ev.dataTransfer.getData("text");
+//   el.appendChild(document.getElementById(data));
+//   count()
+// }
+
+const card = document.querySelectorAll('.card');
+const boards = document.querySelectorAll('.board');
+let draggedItem = null;
+card.forEach((card) => {
+  card.addEventListener('dragstart', (event) => {
+    event.target.value
+    draggedItem = event.target;
+    event.dataTransfer.setData("text", event.target.getAttribute('data-id'));
+  });
+  card.addEventListener('dragend', () => {
+    draggedItem = null;
+  });
+});
+boards.forEach((board) => {
+  board.addEventListener('dragover', (event) => {
+    event.preventDefault();
+  });
+  board.addEventListener('dragenter', (event) => {
+    event.preventDefault();
+    if (draggedItem) {
+      console.log("bballers")
+      const draggingBoard = draggedItem.parentNode;
+      if (draggingBoard !== event.currentTarget) {
+        event.currentTarget.querySelector('.cards').appendChild(draggedItem);
+        count()
+      }
+    }
+  });
+  board.addEventListener('dragleave', () => { });
+  board.addEventListener('drop', (event) => {
+    event.preventDefault();
+  });
+ });

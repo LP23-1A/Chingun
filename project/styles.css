@@ -93,6 +93,9 @@ button {
 .popup { display: none; }
 .popup.open { display: block; }
 
+.popupEdit { display: none; }
+.popupEdit.open { display: block; }
+
 .blocker {
 position: fixed;
 top: 0;
@@ -107,11 +110,21 @@ width: 400px;
 display: flex;
 align-items: center;
 justify-content: center;
-
 position: fixed;
 top: 50vh;
 left: 50vw;
 transform: translate(-50%, -50%);
+}
+
+.popupEdit .contents {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
 }
 
 .form-container {
@@ -210,9 +223,6 @@ transform: translate(-50%, -50%);
     display: inline-block;
 }
 
-.done{
-    
-}
 
 .details{
     display: flex;
@@ -234,9 +244,4 @@ transform: translate(-50%, -50%);
     border-radius: 8px;
     width: fit-content;
     font-size: 12px;
-}
-
-.hitbox {
-    height: 5px;
-    
 }

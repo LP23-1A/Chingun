@@ -11,12 +11,13 @@
     <div>
         <div class="container">
             <div class="boards">
-                <div class="board" ondragover="allowDrop(event)">
+                <div class="board">
+                    <!-- ondrop="drop(event, this)" ondragover="allowDrop(event)" -->
                     <div class="boardHeader">
                         To Do
                         <span class="count" id="countToDo">0</span>
                     </div>
-                    <div class="cards" ondrop="drop(event, this)" ondragover="allowDrop(event)" id="toDo">
+                    <div class="cards" id="toDo">
                         <!-- <div class="card" draggable="true" id="todo">
                             <div class="done">
                                 <i class="fa fa-check circle"></i>
@@ -43,7 +44,7 @@
                         In Progress
                         <span class="count" id="countProgress">0</span>
                     </div>
-                    <div class="cards" ondrop="drop(event, this)" ondragover="allowDrop(event)" id="inProgress">
+                    <div class="cards"  id="inProgress">
                         <span>&nbsp;</span>
                     </div>
                     <button class="add-btn" onclick="showPopup()">
@@ -56,7 +57,7 @@
                         Stuck
                         <span class="count" id="countStuck">0</span>
                     </div>
-                    <div class="cards" ondrop="drop(event, this)" ondragover="allowDrop(event)" id="stuck">
+                    <div class="cards"  id="stuck">
                         <div class="hitbox">&nbsp;</div>
                     </div>
                     <button class="add-btn" onclick="showPopup()">
@@ -69,7 +70,7 @@
                         Done
                         <span class="count" id="countDone">0</span>
                     </div>
-                    <div class="cards" ondrop="drop(event, this)" ondragover="allowDrop(event)" id="done">
+                    <div class="cards"  id="done">
                         <div class="hitbox">&nbsp;</div>
                     </div>
                     <button class="add-btn" onclick="showPopup()">
@@ -115,7 +116,44 @@
                 <button type="reset" class="btn" onclick="checker()">Add Task</button>
             </form>
         </div>
-      </div>
+    </div>
+    <!-- edit -->
+    <div class="popupEdit">
+        <div class="blocker" onclick="hideEdit()"></div>
+        <div class="contents" id="editForm">
+            <form class="form-container">
+                <h1>Edit Task</h1>
+                <div>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="titleE" required>
+                </div>
+                <div>
+                    <label for="desc">Description</label>
+                    <textarea name="desc" id="descE" cols="50" rows="4"></textarea>
+                </div>
+                <div>
+                    <label for="status">Status</label>
+                    <select name="status" id="statusE">
+                        <option hidden disabled selected value></option>
+                        <option value="toDo">To Do</option>
+                        <option value="inProgress">In Progress</option>
+                        <option value="stuck">Stuck</option>
+                        <option value="done">Done</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="priority">Priority</label>
+                    <select name="priority" id="priorityE">
+                        <option hidden disabled selected value></option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <button type="button" class="btn" id="editBtn" onclick="hideEdit()">Edit Task</button>
+            </form>
+        </div>
+    </div>
     <div class="pop-up">    
     </div>
     <script src="index.js" defer></script>
