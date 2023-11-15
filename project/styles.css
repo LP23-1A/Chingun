@@ -217,6 +217,7 @@ transform: translate(-50%, -50%);
 
 .circle:hover {
     background-color: rgba(0, 0, 0, 0.1) ;
+    cursor: pointer;
 }
 
 .done .details .actions {
@@ -244,4 +245,14 @@ transform: translate(-50%, -50%);
     border-radius: 8px;
     width: fit-content;
     font-size: 12px;
+}
+
+.high {
+    order: 1;
+}
+.medium {
+    order: 2;
+}
+.low {
+    order: 3;
 }

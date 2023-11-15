@@ -57,13 +57,14 @@ function addTask(id, titleInput, descriptionInput, statusInput, priorityInput) {
   // card.setAttribute("ondragstart", "drag(event)")
   // card.setAttribute("ondrop", "return false;")
   card.className = "card";
+  card.classList.add(priorityInput)
   document.getElementById(statusInput).appendChild(card);
   var done = document.createElement('button');
   done.innerHTML = '<i class="fa fa-check circle"></i>';
   document.getElementById(id).appendChild(done);
-  done.setAttribute("ondrop", "return false;")
   done.addEventListener('click', function handleClick() {
     document.getElementById("done").appendChild(card);
+    done.innerHTML.style.color = "white"
   });
   var details = document.createElement('div');
   details.setAttribute("id", "details");
@@ -97,8 +98,7 @@ function addTask(id, titleInput, descriptionInput, statusInput, priorityInput) {
   edit.innerHTML = '<i class="fa fa-edit circle"></i>';
   actions.appendChild(edit)
   edit.addEventListener('click', function handleClick() {
-    let identification = id;
-    editCard(titleInput, descriptionInput, statusInput, priorityInput)
+    editCard(titleInput, descriptionInput, card.parentNode.id, priorityInput)
     document.getElementById("editBtn").onclick = function(e){
       let newStatus = document.getElementById("statusE").value
       let newTitle = document.getElementById("titleE").value;
@@ -127,19 +127,10 @@ function checker() {
   let id = uid()
   addTask(id, title, description, status, priority)
   count()
+  dragndrop()
   hidePopup()
 }
 
-// function editConfirm() {
-//   let newStatus = document.getElementById("statusE").value
-//   let newTitle = document.getElementById("titleE").value;
-//   let newDescription = document.getElementById("descE").value;
-//   let newPriority= document.getElementById("priorityE").value;
-//   document.getElementById(newStatus).appendChild(card);
-//   title.innerHTML = newTitle;
-//   description.innerHTML = newDescription;
-//   priority.innerHTML = newPriority;
-// }
 
 // function allowDrop(ev) {
 //   ev.preventDefault();
@@ -156,10 +147,12 @@ function checker() {
 //   count()
 // }
 
-const card = document.querySelectorAll('.card');
-const boards = document.querySelectorAll('.board');
-let draggedItem = null;
-card.forEach((card) => {
+function  dragndrop (id) {
+  const card = document.querySelectorAll('.card');
+  const boards = document.querySelectorAll('.board');
+  let draggedItem = null;
+  card.forEach((card) => {
+  console.log("rizzler")
   card.addEventListener('dragstart', (event) => {
     event.target.value
     draggedItem = event.target;
@@ -168,8 +161,8 @@ card.forEach((card) => {
   card.addEventListener('dragend', () => {
     draggedItem = null;
   });
-});
-boards.forEach((board) => {
+  });
+  boards.forEach((board) => {
   board.addEventListener('dragover', (event) => {
     event.preventDefault();
   });
@@ -187,5 +180,10 @@ boards.forEach((board) => {
   board.addEventListener('dragleave', () => { });
   board.addEventListener('drop', (event) => {
     event.preventDefault();
+    order()
   });
- });
+  });
+
+}
+
+dragndrop()
