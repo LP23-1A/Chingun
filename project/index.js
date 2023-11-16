@@ -64,7 +64,7 @@ function addTask(id, titleInput, descriptionInput, statusInput, priorityInput) {
   document.getElementById(id).appendChild(done);
   done.addEventListener('click', function handleClick() {
     document.getElementById("done").appendChild(card);
-    done.innerHTML.style.color = "white"
+    count()
   });
   var details = document.createElement('div');
   details.setAttribute("id", "details");
@@ -119,16 +119,36 @@ function addTask(id, titleInput, descriptionInput, statusInput, priorityInput) {
   document.getElementById(id).appendChild(actions);
 }
 
+const tasks = [
+  {id: uid(), title: "To Do", description: "This is a to do card", status : "toDo", priority: "high"},
+];
+
+tasks.push({id: uid(), title: "To Do", description: "This is a to do card", status : "inProgress", priority: "high"})
+
+function findArray(array){
+  return array.description
+}
+
+function drawTasks(){
+  for (let i = 0; i < (tasks.length); i++) {
+    console.log(tasks.map(findArray))
+  }
+}
+
+drawTasks()
+
 function checker() {
-  let title = document.getElementById("title").value;
-  let description = document.getElementById("desc").value;
-  let status = document.getElementById("status").value;
-  let priority= document.getElementById("priority").value;
-  let id = uid()
-  addTask(id, title, description, status, priority)
+  let nTitle = document.getElementById("title").value;
+  let nDescription = document.getElementById("desc").value;
+  let nStatus = document.getElementById("status").value;
+  let nPriority= document.getElementById("priority").value;
+  let nId = uid()
+  
+  addTask(nId, nTitle,nDescription,nStatus,nPriority)
   count()
   dragndrop()
   hidePopup()
+  tasks.push({id: nId, title: nTitle, description: nDescription, status: nStatus, priority: nPriority})
 }
 
 
@@ -180,10 +200,10 @@ function  dragndrop (id) {
   board.addEventListener('dragleave', () => { });
   board.addEventListener('drop', (event) => {
     event.preventDefault();
-    order()
   });
   });
 
 }
 
 dragndrop()
+
