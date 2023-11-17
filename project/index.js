@@ -16,11 +16,11 @@ const uid = () => {
   return Date.now().toString(36) + Math.random().toString(36);
 };
 
-addTask(uid(), "To Do", "This is a to do card", "toDo", "high")
+// addTask(uid(), "To Do", "This is a to do card", "toDo", "high")
 
-addTask(uid(), "To Do", "This is a to do card", "inProgress", "high")
+// addTask(uid(), "To Do", "This is a to do card", "inProgress", "high")
 
-addTask(uid(), "To Do", "This is a to do card", "inProgress", "high")
+// addTask(uid(), "To Do", "This is a to do card", "inProgress", "high")
 
 count()
 
@@ -120,22 +120,77 @@ function addTask(id, titleInput, descriptionInput, statusInput, priorityInput) {
 }
 
 const tasks = [
-  {id: uid(), title: "To Do", description: "This is a to do card", status : "toDo", priority: "high"},
+  {id: uid(), title: "To Do", description: "This is a to do card", status: "toDo", priority: "high"},
 ];
 
-tasks.push({id: uid(), title: "To Do", description: "This is a to do card", status : "inProgress", priority: "high"})
-
-function findArray(array){
-  return array.description
-}
+tasks.push({id: uid(), title: "To Do", description: "This is a to do card", status: "inProgress", priority: "high"})
 
 function drawTasks(){
   for (let i = 0; i < (tasks.length); i++) {
-    console.log(tasks.map(findArray))
+    addTask((tasks[i].id), (tasks[i].title), (tasks[i].description), (tasks[i].status), (tasks[i].priority))
   }
 }
 
+function clearTasks(){
+  const boards = document.querySelectorAll(".boards");
+  const board = boards.querySelectorAll(".board");
+  const cards = board.querySelectorAll(".example");
+  cards.removeChild(cards.firstChild);
+}
+
 drawTasks()
+
+function sortToDo(){
+  let mainDiv = document.getElementById("inProgress"),
+
+  divsArray = [tasks];
+
+  let priorities = ['high', 'medium', 'low'];
+  idList = divsArray.sort((a, b)=>priorities.indexOf(a.priority) - priorities.indexOf(b.priority));
+
+  mainDiv.replaceChildren()
+  drawTasks()
+}
+function sortInProgress(){
+  let mainDiv = document.getElementById("inProgress"),
+
+  divsArray = [tasks];
+
+  let priorities = ['high', 'medium', 'low'];
+  idList = divsArray.sort((a, b)=>priorities.indexOf(a.priority) - priorities.indexOf(b.priority));
+
+  mainDiv.replaceChildren()
+  drawTasks()
+}
+function sortStuck(){
+  let mainDiv = document.getElementById("inProgress"),
+
+  divsArray = [tasks];
+
+  let priorities = ['high', 'medium', 'low'];
+  idList = divsArray.sort((a, b)=>priorities.indexOf(a.priority) - priorities.indexOf(b.priority));
+
+  mainDiv.replaceChildren()
+  drawTasks()
+}
+function sortInProgress(){
+  console.log("ball?")
+  let toDoDiv = document.getElementById("toDo");
+  let inProgressDiv = document.getElementById("inProgress");
+  let stuckDiv = document.getElementById("stuck");
+  let doneDiv = document.getElementById("done");
+
+  divsArray = [tasks];
+
+  let priorities = ['high', 'medium', 'low'];
+  idList = divsArray.sort((a, b)=>priorities.indexOf(a.priority) - priorities.indexOf(b.priority));
+
+  toDoDiv.replaceChildren()
+  inProgressDiv.replaceChildren()
+  stuckDiv.replaceChildren()
+  doneDiv.replaceChildren()
+  drawTasks()
+}
 
 function checker() {
   let nTitle = document.getElementById("title").value;
@@ -144,11 +199,14 @@ function checker() {
   let nPriority= document.getElementById("priority").value;
   let nId = uid()
   
-  addTask(nId, nTitle,nDescription,nStatus,nPriority)
+  // addTask(nId, nTitle,nDescription,nStatus,nPriority)
+  tasks.push({id: nId, title: nTitle, description: nDescription, status: nStatus, priority: nPriority})
+  addTask((tasks[(tasks.length - 1)].id), (tasks[(tasks.length - 1)].title), (tasks[(tasks.length - 1)].description), (tasks[(tasks.length - 1)].status), (tasks[(tasks.length - 1)].priority))
+  // sortInProgress()
   count()
   dragndrop()
   hidePopup()
-  tasks.push({id: nId, title: nTitle, description: nDescription, status: nStatus, priority: nPriority})
+  
 }
 
 
@@ -177,6 +235,7 @@ function  dragndrop (id) {
     event.target.value
     draggedItem = event.target;
     event.dataTransfer.setData("text", event.target.getAttribute('data-id'));
+    // sortInProgress()
   });
   card.addEventListener('dragend', () => {
     draggedItem = null;
@@ -200,6 +259,7 @@ function  dragndrop (id) {
   board.addEventListener('dragleave', () => { });
   board.addEventListener('drop', (event) => {
     event.preventDefault();
+    // sortInProgress()
   });
   });
 
