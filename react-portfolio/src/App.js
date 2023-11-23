@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { StrictMode } from "react";
+import Nav from './components/Nav';
+import Header from './components/Header';
+import Link from "./components/link";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StrictMode>
+      <Header>
+        <header className="text-gray-900 text-center text-3xl float-left">{'<SS />'}</header>
+        <Nav>
+          <Link>About</Link>
+          <Link>Work</Link>
+          <Link>Testimonials</Link>
+          <Link>Contact</Link>
+        </Nav>
+      </Header>
+    </StrictMode>
   );
 }
-
 export default App;
