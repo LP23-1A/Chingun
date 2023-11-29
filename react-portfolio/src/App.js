@@ -3,6 +3,8 @@ import Link from "./components/link";
 import IconButton from "./components/IconButton";
 import Button from './components/Button';
 import Tag from './components/Tag'
+import Tech from './components/Tech'
+import Exp from './components/Exp';
 
 //assets
 import BrightnessIcon from './assets/BrightnessIcon.svg';
@@ -11,6 +13,23 @@ import FigmaIcon from './assets/FigmaIcon.svg';
 import GitIcon from './assets/GitIcon.svg';
 import TwitterIcon from './assets/TwitterIcon.svg';
 //------
+import JavascriptIcon from '/Users/23LP1573/Desktop/Project/Chingun/react-portfolio/src/assets/arr/icon-javscript.svg';
+import TypescriptIcon from './assets/arr/icon-typescript.svg';
+import ReactIcon from './assets/arr/icon-react.svg';
+import NextIcon from './assets/arr/icon-nextjs.svg';
+import NodeIcon from './assets/arr/icon-nodejs.svg';
+import ExpressIcon from './assets/arr/icon-express.svg';
+import NestIcon from './assets/arr/icon-nest.svg';
+import SocketIcon from './assets/arr/icon-socket.svg';
+import PostgreIcon from './assets/arr/icon-postgresql.svg';
+import MongoIcon from './assets/arr/icon-mongodb.svg';
+import SassIcon from './assets/arr/icon-sass.svg';
+import TailwindIcon from './assets/arr/icon-tailwindcss.svg';
+import FigmaIconC from './assets/arr/icon-figma.svg';
+import CypressIcon from './assets/arr/icon-cypress.svg';
+import StoryIcon from './assets/arr/icon-storybook.svg';
+import GitIconC from './assets/arr/icon-git.svg';
+
 
 function App() {
   return (
@@ -104,15 +123,15 @@ function App() {
                 <text className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base not-italic font-normal leading-6; font-family: Inter;">Finally, some quick bits about me.</text>
                 <div className="flex items-start gap-2.5 self-stretch">
                   <div className="flex flex-col items-start gap-2.5 flex-1">
-                    <ul>
-                      <li> B.E. in Computer Engineering</li>
-                      <li>Full time freelancer</li>
+                    <ul style={{ listStyleType: 'disc' }}>
+                      <li className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base not-italic font-normal leading-6; font-family: Inter;"> B.E. in Computer Engineering</li>
+                      <li className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base not-italic font-normal leading-6; font-family: Inter;">Full time freelancer</li>
                     </ul>
                   </div>
                   <div className="flex flex-col items-start gap-2.5 flex-1">
-                    <ul>
-                      <li>Avid learner</li>
-                      <li>Aspiring indie hacker</li>
+                    <ul style={{ listStyleType: 'disc' }}>
+                      <li className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base not-italic font-normal leading-6; font-family: Inter;">Avid learner</li>
+                      <li className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base not-italic font-normal leading-6; font-family: Inter;">Aspiring indie hacker</li>
                     </ul>
                   </div>
                 </div>
@@ -132,7 +151,79 @@ function App() {
               <text className="self-stretch text-[color:var(--gray-600,#4B5563)] text-center text-xl not-italic font-normal leading-7; font-family: Inter;">The skills, tools and technologies I am really good at:</text>
             </div>
           </div>
-          <div className=""></div>
+          <div className="flex flex-col items-start gap-12 self-stretch">
+            <div className="flex justify-between items-center self-stretch">
+              <Tech><img src={JavascriptIcon} alt="JS" /><p>Javascript</p></Tech>
+              <Tech><img src={TypescriptIcon} alt="TS" /><p>TypeScript</p></Tech>
+              <Tech><img src={ReactIcon} alt="React" /><p>React</p></Tech>
+              <Tech><img src={NextIcon} alt="NextJS" /><p>Next.js</p></Tech>
+              <Tech><img src={NodeIcon} alt="Node.js" /><p>Node.js</p></Tech>
+              <Tech><img src={ExpressIcon} alt="Express.js" /><p>Express.js</p></Tech>
+              <Tech><img src={NestIcon} alt="Nest.js" /><p>Nest.js</p></Tech>
+              <Tech><img src={SocketIcon} alt="Socket.io" /><p>Socket.io</p></Tech>
+            </div>
+            <div className="flex justify-between items-center self-stretch">
+              <Tech><img src={PostgreIcon} alt="PostgreSQL" /><p>PostgreSQL</p></Tech>
+              <Tech><img src={MongoIcon} alt="MongoDB" /><p>MongoDB</p></Tech>
+              <Tech><img src={SassIcon} alt="Sass" /><p>Sass/Scss</p></Tech>
+              <Tech><img src={TailwindIcon} alt="Tailwindcss" /><p>Tailwindcss</p></Tech>
+              <Tech><img src={FigmaIconC} alt="Figma" /><p>Figma</p></Tech>
+              <Tech><img src={CypressIcon} alt="Cypress" /><p>Cypress</p></Tech>
+              <Tech><img src={StoryIcon} alt="Nest.js" /><p>StoryBook</p></Tech>
+              <Tech><img src={GitIconC} alt="Git" /><p>Git</p></Tech>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex py-24 px-20 flex-col justify-center items-center self-stretch bg-gray-50">
+        <div className="flex py-0 px-32px flex-col justify-center items-center gap-12 self-stretch">
+          <div className="flex flex-col items-start gap-4 self-stretch">
+            <div className="flex flex-col justify-center items-center self-stretch">
+              <Tag>Experience</Tag>
+            </div>
+            <div className="flex flex-col justify-center items-center self-stretch">
+              <text className="self-stretch text-[color:var(--gray-600,#4B5563)] text-center text-xl not-italic font-normal leading-7; font-family: Inter;">Here is a quick summary of my most recent experiences:</text>
+            </div>
+          </div>
+          <Exp>
+            <div className="flex w-96 flex-col items-start gap-4">
+              <text className="self-stretch text-[color:var(--gray-900,#111827)] text-xl not-italic font-semibold leading-7; font-family: Inter;">Sr. Frontend Developer</text>
+              <ul style={{ listStyleType: 'disc' }} className="flex flex-col items-start gap-1 self-stretch">
+                <li className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base not-italic font-normal leading-6; font-family: Inter;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                <li className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base not-italic font-normal leading-6; font-family: Inter;">Ut pretium arcu et massa semper, id fringilla leo semper.</li>
+                <li className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base not-italic font-normal leading-6; font-family: Inter;">Sed quis justo ac magna.</li>
+                <li className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base not-italic font-normal leading-6; font-family: Inter;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+              </ul>
+            </div>
+            <div className="flex items-start gap-6">
+              <text className="text-[color:var(--gray-700,#374151)] text-base not-italic font-normal leading-6; font-family: Inter;">Nov 2021 - Present</text>
+            </div>
+          </Exp>
+          <Exp>
+            <div className="flex w-96 flex-col items-start gap-4">
+              <text className="self-stretch text-[color:var(--gray-900,#111827)] text-xl not-italic font-semibold leading-7; font-family: Inter;">Team Lead</text>
+              <ul style={{ listStyleType: 'disc' }} className="flex flex-col items-start gap-1 self-stretch">
+                <li className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base not-italic font-normal leading-6; font-family: Inter;">Sed quis justo ac magna.</li>
+                <li className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base not-italic font-normal leading-6; font-family: Inter;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                <li className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base not-italic font-normal leading-6; font-family: Inter;">Sed quis justo ac magna.</li>
+                <li className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base not-italic font-normal leading-6; font-family: Inter;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+              </ul>
+            </div>
+            <div className="flex items-start gap-6">
+              <text className="text-[color:var(--gray-700,#374151)] text-base not-italic font-normal leading-6; font-family: Inter;">Jul 2017 - Oct 2021</text>
+            </div>
+          </Exp>
+          <Exp>
+            <div className="flex w-96 flex-col items-start gap-4">
+              <text className="self-stretch text-[color:var(--gray-900,#111827)] text-xl not-italic font-semibold leading-7; font-family: Inter;">Full Stack Developer</text>
+              <ul style={{ listStyleType: 'disc' }} className="flex flex-col items-start gap-1 self-stretch">
+                <li className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base not-italic font-normal leading-6; font-family: Inter;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+              </ul>
+            </div>
+            <div className="flex items-start gap-6">
+              <text className="text-[color:var(--gray-700,#374151)] text-base not-italic font-normal leading-6; font-family: Inter;">Dec 2015 - May 2017</text>
+            </div>
+          </Exp>
         </div>
       </div>
     </StrictMode>
