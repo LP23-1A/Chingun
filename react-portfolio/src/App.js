@@ -12,6 +12,12 @@ import LocationIcon from './assets/LocationIcon.svg';
 import FigmaIcon from './assets/FigmaIcon.svg';
 import GitIcon from './assets/GitIcon.svg';
 import TwitterIcon from './assets/TwitterIcon.svg';
+import Image from './assets/Picture.png';
+import Share from './assets/ShareIcon.svg';
+import Copy from './assets/CopyIcon.svg';
+import CopyRight from './assets/CopyrightIcon.svg';
+import Mail from './assets/MailIcon.svg';
+import Phone from './assets/PhoneIcon.svg';
 //------
 import JavascriptIcon from '/Users/23LP1573/Desktop/Project/Chingun/react-portfolio/src/assets/arr/icon-javscript.svg';
 import TypescriptIcon from './assets/arr/icon-typescript.svg';
@@ -29,6 +35,7 @@ import FigmaIconC from './assets/arr/icon-figma.svg';
 import CypressIcon from './assets/arr/icon-cypress.svg';
 import StoryIcon from './assets/arr/icon-storybook.svg';
 import GitIconC from './assets/arr/icon-git.svg';
+//-----------------------
 
 
 function App() {
@@ -224,6 +231,157 @@ function App() {
               <text className="text-[color:var(--gray-700,#374151)] text-base not-italic font-normal leading-6; font-family: Inter;">Dec 2015 - May 2017</text>
             </div>
           </Exp>
+        </div>
+      </div>
+      <div className="flex py-24 px-20 flex-col justify-center items-center self-stretch">
+        <div className="flex py-0 px-8 flex-col justify-center items-center gap-12 self-stretch">
+          <div className="flex flex-col items-start gap-4 self-stretch">
+            <div className="flex flex-col justify-center items-center self-stretch">
+              <Tag>Work</Tag>
+            </div>
+            <div className="flex flex-col justify-center items-center self-stretch">
+              <text className=" self-stretch text-[color:var(--gray-600,#4B5563)] text-center text-xl not-italic font-normal leading-7; font-family: Inter;">Some of the noteworthy projects I have built:</text>
+            </div>
+          </div>
+          <div className="flex w-288 items-start rounded-xl shadow-[0px_2px_2px_0px_rgba(0,0,0,0.06),0px_4px_3px_0px_rgba(0,0,0,0.07)]">
+            <div className="flex p-12 justify-center items-center flex-1 self-stretch bg-gray-50">
+              <img src={Image} alt="Image"></img>
+            </div>
+            <div className="flex p-12 flex-col items-center gap-6 flex-1 self-stretch rounded-[12px_0px_0px_12px]">
+              <text className="self-stretch overflow-hidden text-[color:var(--gray-900,#111827)] text-ellipsis text-xl not-italic font-semibold leading-7; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; font-family: Inter;">Fiskil</text>
+              <text className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base non-italic font-normal leading-7; font-family: Inter;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec urna ac tellus volutpat viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.
+              </text>
+              <div className="flex items-center content center gap-2 self-stretch flex-wrap">
+                <Tag>React</Tag>
+                <Tag>Next.js</Tag>
+                <Tag>Typescript</Tag>
+                <Tag>Nest.js</Tag>
+                <Tag>PostgreSQL</Tag>
+                <Tag>Tailwindcss</Tag>
+                <Tag>Figma</Tag>
+                <Tag>Cypress</Tag>
+                <Tag>Storybook</Tag>
+                <Tag>Git</Tag>
+              </div>
+              <div className="flex items-center gap-3 self-stretch">
+                <IconButton><img src={Share} alt="Share Icon" /></IconButton>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex w-288 items-start rounded-xl shadow-[0px_2px_2px_0px_rgba(0,0,0,0.06),0px_4px_3px_0px_rgba(0,0,0,0.07)]">
+            <div className="flex p-12 flex-col items-center gap-6 flex-1 self-stretch rounded-[12px_0px_0px_12px]">
+              <text className="self-stretch overflow-hidden text-[color:var(--gray-900,#111827)] text-ellipsis text-xl not-italic font-semibold leading-7; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; font-family: Inter;">Fiskil</text>
+              <text className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base non-italic font-normal leading-7; font-family: Inter;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec urna ac tellus volutpat viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.
+              </text>
+              <div className="flex items-center content center gap-2 self-stretch flex-wrap">
+                <Tag>React</Tag>
+                <Tag>Next.js</Tag>
+                <Tag>Typescript</Tag>
+                <Tag>Nest.js</Tag>
+                <Tag>PostgreSQL</Tag>
+                <Tag>Tailwindcss</Tag>
+                <Tag>Figma</Tag>
+                <Tag>Cypress</Tag>
+                <Tag>Storybook</Tag>
+                <Tag>Git</Tag>
+              </div>
+              <div className="flex items-center gap-3 self-stretch">
+                <IconButton><img src={Share} alt="Share Icon" /></IconButton>
+              </div>
+            </div>
+            <div className="flex p-12 justify-center items-center flex-1 self-stretch bg-gray-50">
+              <img src={Image} alt="Image"></img>
+            </div>
+
+          </div>
+
+          <div className="flex w-288 items-start rounded-xl shadow-[0px_2px_2px_0px_rgba(0,0,0,0.06),0px_4px_3px_0px_rgba(0,0,0,0.07)]">
+            <div className="flex p-12 justify-center items-center flex-1 self-stretch bg-gray-50">
+              <img src={Image} alt="Image"></img>
+            </div>
+            <div className="flex p-12 flex-col items-center gap-6 flex-1 self-stretch rounded-[12px_0px_0px_12px]">
+              <text className="self-stretch overflow-hidden text-[color:var(--gray-900,#111827)] text-ellipsis text-xl not-italic font-semibold leading-7; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; font-family: Inter;">Fiskil</text>
+              <text className="self-stretch text-[color:var(--gray-600,#4B5563)] text-base non-italic font-normal leading-7; font-family: Inter;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec urna ac tellus volutpat viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.
+              </text>
+              <div className="flex items-center content center gap-2 self-stretch flex-wrap">
+                <Tag>React</Tag>
+                <Tag>Next.js</Tag>
+                <Tag>Typescript</Tag>
+                <Tag>Nest.js</Tag>
+                <Tag>PostgreSQL</Tag>
+                <Tag>Tailwindcss</Tag>
+                <Tag>Figma</Tag>
+                <Tag>Cypress</Tag>
+                <Tag>Storybook</Tag>
+                <Tag>Git</Tag>
+              </div>
+              <div className="flex items-center gap-3 self-stretch">
+                <IconButton><img src={Share} alt="Share Icon" /></IconButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex py-24 px-20 flex-col justify-center items-center self-stretch">
+        <div className="flex py-0 px-8 flex-col justify-center items-center gap-12 self-stretch">
+          <div className="flex flex-col items-start gap-4 self-stretch">
+            <div className="flex flex-col justify-center items-center self-stretch">
+              <Tag>Get in Touch</Tag>
+            </div>
+            <div className="flex flex-col justify-center items-center self-stretch">
+              <text className="self-stretch text-[color:var(--gray-600,#4B5563)] text-center text-xl not-italic font-normal leading-7; font-family: Inter;">What’s next? Feel free to reach out to me if you're looking for a developer, have a query, or simply want to connect.</text>
+            </div>
+          </div>
+          <div className="flex flex-col justify-center items-center gap-4">
+            <div className="flex justify-center items-center gap-5">
+              <img src={Mail} alt="email icon" />
+              <text className="text-[color:var(--gray-900,#111827)] text-center text-4xl not-italic font-semibold leading-10 tracking-[-0.72px]; font-family: Inter;">reachsagarshah@gmail.com</text>
+              <IconButton>
+                <img src={Copy} />
+              </IconButton>
+            </div>
+            <div className="flex justify-center items-center gap-5">
+              <img src={Phone} alt="Phone icon" />
+              <text className="text-[color:var(--gray-900,#111827)] text-center text-4xl not-italic font-semibold leading-10 tracking-[-0.72px]; font-family: Inter;">+91 8980500565</text>
+              <IconButton>
+                <img src={Copy} />
+              </IconButton>
+            </div>
+          </div>
+          <div className="flex justify-center items-center gap-16 self-stretch rounded-xl">
+            <div className="flex flex-col justify-center items-center gap-2">
+              <text className="text-[color:var(--gray-600,#4B5563)] text-base not-italic font-normal leading-6; font-family: Inter;">You may also find me on these platforms!</text>
+              <div className="flex flex-col justify-center items-center gap-4 self-stretch">
+                <div className="flex items-center gap-1">
+                  <IconButton>
+                    <img src={GitIcon} alt="Github Icon" />
+                  </IconButton>
+                  <IconButton>
+                    <img src={TwitterIcon} alt="Twitter Icon" />
+                  </IconButton>
+                  <IconButton>
+                    <img src={FigmaIcon} alt="Figma Icon" />
+                  </IconButton>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex py-6 px-20 flex-col justify-center items-center self-stretch bg-gray-50">
+        <div className="flex py-0 px-8 flex-col justify-center items-center gap-16 self-stretch">
+          <div className="flex flex-col items-start gap-4 self-stretch">
+            <div className="flex flex-col justify-center items-center self-stretch">
+              <div className="flex justify-center items-center gap-2">
+                <img src={CopyRight} />
+                <text>2023 | Designed and coded with ❤️️ by Sagar Shah</text>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </StrictMode>
