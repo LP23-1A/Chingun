@@ -1,5 +1,5 @@
 import React from 'react';
-import upwork from '/Users/23LP1573/Desktop/Project/Chingun/react-portfolio/src/assets/logo-upwork.svg'
+import upwork from './logo-upwork.svg'
 
 const Exp = ({ children }) => (
     <div className='flex w-224 p-8 flex-col items-start rounded-xl shadow-[0px_2px_2px_0px_rgba(0,0,0,0.06),0px_4px_3px_0px_rgba(0,0,0,0.07)]'>
