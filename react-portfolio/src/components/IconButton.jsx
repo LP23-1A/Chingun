@@ -1,11 +1,9 @@
+
+
 import React from 'react';
 
-const IconButton = ({ children }) => {
-  return (
-    <button>
-      {children}
-    </button>
-  );
-};
+const IconButton = (props) => {
+    return <button onClick={props.onClick}>{props.children}</button>
+}
 
 export default IconButton;

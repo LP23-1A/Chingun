@@ -38,7 +38,13 @@ import GitIconC from './assets/arr/icon-git.svg';
 //-----------------------
 
 
+
 function App() {
+
+  function handleClick() {
+    console.log("Button clicked");
+  }
+
   return (
     <StrictMode>
       <div className='flex px-20 py-4 justify-between items-center self-stretch'>
@@ -51,7 +57,7 @@ function App() {
             <Link>Contact</Link>
             <div>|</div>
             <header className='flex justify-center items-center gap-4 '>
-              <IconButton>
+              <IconButton onClick={handleClick}>
                 <img src={BrightnessIcon} alt="Brightness Icon" />
               </IconButton>
               <Button>
