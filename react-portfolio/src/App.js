@@ -19,7 +19,7 @@ import CopyRight from './assets/CopyrightIcon.svg';
 import Mail from './assets/MailIcon.svg';
 import Phone from './assets/PhoneIcon.svg';
 //------
-import JavascriptIcon from '/Users/23LP1573/Desktop/Project/Chingun/react-portfolio/src/assets/arr/icon-javscript.svg';
+import JavascriptIcon from './assets/arr/icon-javscript.svg';
 import TypescriptIcon from './assets/arr/icon-typescript.svg';
 import ReactIcon from './assets/arr/icon-react.svg';
 import NextIcon from './assets/arr/icon-nextjs.svg';
