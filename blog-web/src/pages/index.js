@@ -1,16 +1,16 @@
 import Image from 'next/image'
-import Header from '../pages/components/Header'
-import Home from './api/Home'
-import { Inter } from 'next/font/google';
-import Link from 'next/link';
+import { Inter } from 'next/font/google'
+import Posts from './posts/page'
+import Navbar from './navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Index() {
+export default function Home() {
   return (
     <main>
-      <Home></Home>
-      <Link href={"./api/test"}> pp</Link>
+      <Navbar></Navbar>
+      <h1>hello</h1>
+      <Posts></Posts>
     </main>
   )
 }
