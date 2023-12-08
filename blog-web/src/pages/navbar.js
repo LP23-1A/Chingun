@@ -1,26 +1,21 @@
 import React from "react";
 import Link from 'next/link'
+import SearchBar from './components/searchBar'
 
 const navbar = () => {
     return (
-        <div className="flex justify-center items-end">
-            <div className="flex-1 floa-left">
+        <div className="flex w-[1917px] px-[350px] py-[32px] flex-col items-start gap-[10px]">
+            <div className="flex items-start gap-[118px]">
                 <a className="btn btn-ghost">
                     <img src="./Logo.svg"></img>
                 </a>
-            </div>
-            <div className="flex justify-center items-center">
-                <div className="flex justify-center items-center px-92">
-                    <ul className="gap-2 flex flex-row">
-                        <li><Link href={'./blog'}>Home</Link></li>
-                        <li><Link href={'./blog'}>Blog</Link></li>
-                        <li><Link href={'./blog'}>Contact</Link></li>
+                <div className="flex items-center gap-[21px]">
+                    <ul className="flex w-[667px] justify-center items-center gap-10">
+                        <li className="flex items-center gap-1"><Link href={'./blog'} className="text-[color:var(--secondary-600,#3B3C4A)] text-base not-italic font-normal leading-6; font-family: Work Sans;">Home</Link></li>
+                        <li className="flex items-center gap-1"><Link href={'./blog'} className="text-[color:var(--secondary-600,#3B3C4A)] text-base not-italic font-normal leading-6; font-family: Work Sans;">Blog</Link></li>
+                        <li className="flex items-center gap-1"><Link href={'./blog'} className="text-[color:var(--secondary-600,#3B3C4A)] text-base not-italic font-normal leading-6; font-family: Work Sans;">Contact</Link></li>
                     </ul>
-                </div>
-                <div className="gap-2">
-                    <div className="border-black">
-                        <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
-                    </div>
+                    <SearchBar />
                 </div>
             </div>
         </div>
