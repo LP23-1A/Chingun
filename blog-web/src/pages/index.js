@@ -4,6 +4,9 @@ import Posts from './posts/page'
 import Navbar from './navbar'
 import Badge from './components/a-badge'
 import Trending from './components/trending'
+import Card from './components/card'
+import Button from './components/button'
+import Footer from './components/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -72,13 +75,30 @@ export default function Home() {
                   </div>
                 </header>
                 <div className='flex flex-col items-start gap-[20px]'>
-
+                  <div className='flex items-start gap-[20px]'>
+                    <Card short={"August 20, 2022"} badge={"Technology"}>The Impact of Technology on the Workplace: How Technology is Changing</Card>
+                    <Card short={"August 20, 2022"} badge={"Technology"}>The Impact of Technology on the Workplace: How Technology is Changing</Card>
+                    <Card short={"August 20, 2022"} badge={"Technology"}>The Impact of Technology on the Workplace: How Technology is Changing</Card>
+                  </div>
+                  <div className='flex items-start gap-[20px]'>
+                    <Card short={"August 20, 2022"} badge={"Technology"}>The Impact of Technology on the Workplace: How Technology is Changing</Card>
+                    <Card short={"August 20, 2022"} badge={"Technology"}>The Impact of Technology on the Workplace: How Technology is Changing</Card>
+                    <Card short={"August 20, 2022"} badge={"Technology"}>The Impact of Technology on the Workplace: How Technology is Changing</Card>
+                  </div>
+                  <div className='flex items-start gap-[20px]'>
+                    <Card short={"August 20, 2022"} badge={"Technology"}>The Impact of Technology on the Workplace: How Technology is Changing</Card>
+                    <Card short={"August 20, 2022"} badge={"Technology"}>The Impact of Technology on the Workplace: How Technology is Changing</Card>
+                    <Card short={"August 20, 2022"} badge={"Technology"}>The Impact of Technology on the Workplace: How Technology is Changing</Card>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <Button>Load More</Button>
+
+          <Footer></Footer>
         </div>
-        <Posts></Posts>
       </div>
     </main>
   )
