@@ -15,7 +15,7 @@ export default function Custom404() {
                         <div className='flex py-[8px] px-[0] flex-col justify-end items-start gap-[20px]'>
                             <header className='text-black text-2xl not-italic font-semibold leading-10; font-family: Work Sans;'>Page Not Found</header>
                             <text className='w-[392px] text-[color:var(--Secondary-500,#696A75)] text-lg not-italic font-normal leading-[26px]; font-family: Work Sans;'>
-                                We're sorry, This page is unknown or does not exist the page you are looking for.
+                                We&apos;re sorry, This page is unknown or does not exist the page you are looking for.
                             </text>
                             <button onClick={() => router.push('/')} className='flex px-[16px] py-[10px] justify-center items-center rounded-[6px] bg-[#4B6BFB]'>
                                 <text className='text-white text-center text-sm not-italic font-medium leading-5; font-family: Work Sans;'>Back to Home</text>
