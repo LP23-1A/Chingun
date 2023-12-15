@@ -32,11 +32,16 @@ const page = () => {
                             <div className="flex flex-col items-start gap-[24px]">
                                 <text className="text-black text-lg not-italic font-semibold leading-[26px] font-family: Work Sans;">Leave a Message</text>
                                 <div className="flex w-[478px] pb-[18px] justify-center items-center">
-                                    <form className="w-[478px] h-[317px] shrink-0">
-                                        <div className="w-[589px] h-[39px] shrink-0">
+                                    <form className="w-[478px] h-[317px] shrink-0 flex flex-col gap-[20px]">
+                                        <div className="w-[589px] h-[39px] shrink-0 flex flex-row gap-[28px]">
                                             <input className="flex w-[225px] h-[38px] py-[14px] pl-[20px] pr-[14px] items-center gap-[12px] shrink-0 rounded border border-solid border-[#DCDDDF]" placeholder="Your Name"></input>
                                             <input className="flex w-[225px] h-[38px] py-[14px] pl-[20px] pr-[14px] items-center gap-[12px] shrink-0 rounded border border-solid border-[#DCDDDF]" placeholder="Your Email "></input>
                                         </div>
+                                        <input className="flex w-[478px] h-[38px] py-[14px] pl-[20px] pr-[14px] items-center gap-[12px] shrink-0 rounded border border-solid border-[#DCDDDF]" placeholder="Subject"></input>
+                                        <input className="flex w-[478px] h-[134px] py-[14px] pl-[20px] pr-[14px] items-center gap-[12px] shrink-0 rounded border border-solid border-[#DCDDDF]" placeholder="Write a Message"></input>
+                                        <button type="submit" className="inline-flex py-[10px] px-[16px] flex-col justify-center items-center rounded-[6px] bg-[#4B6BFB] w-[130px] mt-[10px]">
+                                            <text className="text-white text-center text-sm not-italic font-medium leading-5; font-family: Work Sans;">Send Message</text>
+                                        </button>
                                     </form>
                                 </div>
                             </div>
