@@ -6,7 +6,7 @@ import Card from './components/card'
 
 const Blog = () => {
     return (
-        <main className="inline-flex flex-col justify-end items-center bg-white mx-[165px]">
+        <main className="inline-flex flex-col justify-end items-center bg-white mx-auto">
             <div className="flex flex-col items-center gap-[48px]">
                 <Navbar></Navbar>
                 <header className="w-[1216px] h-7 text-[color:var(--Secondary-800,#181A2A)] text-2xl not-italic font-bold leading-7; font-family: Work Sans;">All Blog Post</header>

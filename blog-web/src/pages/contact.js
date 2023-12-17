@@ -4,7 +4,7 @@ import Footer from './components/footer'
 
 const page = () => {
     return (
-        <main className="inline-flex justify-center items-center bg-white mx-[165px]">
+        <main className="inline-flex justify-center items-center bg-white mx-auto">
             <div className="flex flex-col items-center gap-[100px]">
                 <Navbar></Navbar>
                 <div className="flex flex-col items-center gap-[100px]">

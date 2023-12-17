@@ -4,7 +4,7 @@ import SearchBar from './components/searchBar'
 
 const navbar = () => {
     return (
-        <div className="flex w-[1917px] px-[350px] py-[32px] flex-col items-start gap-[10px]">
+        <div className="flex w-[1917px] px-[345px] py-[32px] flex-col items-start gap-[10px] mx-auto">
             <div className="flex items-start gap-[118px]">
                 <a className="btn btn-ghost">
                     <img src="./Logo.svg"></img>
