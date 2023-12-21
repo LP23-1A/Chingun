@@ -1,12 +1,11 @@
-type = module
 
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const UrlSchema = new mongoose.Schema({
-    url: String,
+    shortUrl: String,
+    longUrl: String,
 });
 
 const Url = mongoose.model("Url", UrlSchema);
 
-
-module.exports = Url
+export default Url;

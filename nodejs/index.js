@@ -1,11 +1,19 @@
-const express = require('express');
-const bp = require('body-parser');
-const mongoose = require('mongoose');
-const Url = require('./schema/Url')
-// import mongoose from 'mongoose';
-// import url from './schema/Url'
-// import express from 'express';
-// import bp from 'body-parser';
+// const express = require('express');
+// const bp = require('body-parser');
+// const mongoose = require('mongoose');
+// const Url = require('./schema/Url');
+
+// process.on('uncaughtException', function (err) {
+//     console.log(err);
+// }); 
+
+import {nanoid} from "nanoid";
+import mongoose from "mongoose";
+import Url from "./schema/Url.js";
+import express from "express";
+import bp from "body-parser";
+
+// model.id = nanoid() //=> "V1StGXR8_Z5jdHi6B-myT"
 
 const PORT = 8000;
 
@@ -15,13 +23,35 @@ const app = express();
 
 app.use(bp.json());
 
-app.get('/', async(request, response) => {
+app.get('/', async(_, response) => {
     const res = await Url.find();
-    response.send({succeess: true, res}).end();
+    response.send(res).emit("error");
 })
 
-app.post('/', async (request, response) => {
-    const newUrl = await Url.create(request.body)
+app.get('/:id', async(request, response) => {
+    console.log(request.body);
+    const res = await Url.create({
+
+    })
+})
+
+app.get("/:ur", async(request, response) => {
+    const { url } = requestbody
+
+    console.log(request.params.id);
+    const res = await Url.findOne({
+        shortUrl: request.params.url
+    });
+
+    response.redirect(res.longUrl);
+})
+
+app.post("/", async (request, response) => {
+    const { url } = request.body
+    const newUrl = await Url.create({
+        longUrl: url,
+        shortUrl: nanoid(10)
+    })
 
     res.send({success: true, urls: newUrl }).end();
 } )
@@ -29,11 +59,13 @@ app.post('/', async (request, response) => {
 app.listen(PORT, async () => {
     try {
         await mongoose.connect(MONGODB_URI);
-        console.log('DB connection success')
+        console.log("DB connection success")
     } catch (error) {
         console.log(error);
     }
-    console.log("Server Running!")
+    console.log("connected to mongoDB " + PORT)
+
+    
 })
 // let users = [
 //     {
