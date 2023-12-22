@@ -7,17 +7,22 @@
 //     console.log(err);
 // }); 
 
-import {nanoid} from "nanoid";
-import mongoose from "mongoose";
-import Url from "./schema/Url.js";
-import express from "express";
-import bp from "body-parser";
-
 // model.id = nanoid() //=> "V1StGXR8_Z5jdHi6B-myT"
 
-const PORT = 8000;
+import express from "express";
+import bp from "body-parser";
+import mongoose from "mongoose";
+import Url from "./schema/Url.js";
+import { nanoid } from "nanoid";
+import dotenv from "dotenv";
 
-const MONGODB_URI = "mongodb+srv://23lp1573:G54iIeE4SPVNHgzA@cluster0.r9d2jfn.mongodb.net/?retryWrites=true&w=majority";
+dotenv.config()
+
+const PORT = process.env.PORT || 8000;
+
+const MONGODB_URL = "mongodb+srv://23lp1573:G54iIeE4SPVNHgzA@cluster0.r9d2jfn.mongodb.net/?retryWrites=true&w=majority";
+
+// const MONGODB_URL = process.env.MONGODB_URL;
 
 const app = express();
 
@@ -25,48 +30,48 @@ app.use(bp.json());
 
 app.get('/', async(_, response) => {
     const res = await Url.find();
-    response.send(res).emit("error");
+    response.send(res).end();
 })
 
-app.get('/:id', async(request, response) => {
-    console.log(request.body);
-    const res = await Url.create({
+app.get('/:url', async(request, response) => {
+    const { url } = request.params;
 
-    })
-})
-
-app.get("/:ur", async(request, response) => {
-    const { url } = requestbody
-
-    console.log(request.params.id);
     const res = await Url.findOne({
-        shortUrl: request.params.url
-    });
-
-    response.redirect(res.longUrl);
+        shortUrl: url,
+    })
+    response.redirect(response.longUrl);
 })
 
 app.post("/", async (request, response) => {
     const { url } = request.body
+
     const newUrl = await Url.create({
         longUrl: url,
         shortUrl: nanoid(10)
     })
 
-    res.send({success: true, urls: newUrl }).end();
+    res.send({success: true, url: newUrl }).end();
 } )
+
+app.delete("/:url", async (request, response) => {
+    const { url } = request.params;
+
+    const { acknowledged, deletedCount } = await Url.deleteOne({
+        shortUrl: url,
+    })
+    response.send({ success: acknowledged, removedCount: deletedCount }).end();
+})
 
 app.listen(PORT, async () => {
     try {
-        await mongoose.connect(MONGODB_URI);
-        console.log("DB connection success")
-    } catch (error) {
+        await mongoose.connect(MONGODB_URL);
+    }  catch (error) {
         console.log(error);
     }
-    console.log("connected to mongoDB " + PORT)
-
-    
+    console.log(`connected to mongoDB ${PORT}`)    
 })
+
+
 // let users = [
 //     {
 //         id: 1,
